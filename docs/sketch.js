@@ -1,7 +1,7 @@
 // Where is the car
 let x, y;
 
-class carro {
+class Carro {
   constructor(alto,ancho,color,name){
   this.alto=alto;
   this.ancho=ancho;
@@ -18,7 +18,7 @@ function setup() {
   // Starts position
   y = height - height/4;
   x = 0;
-let micarro= new carro (10,20,(red),"minave");
+let micarro= new Carro (10,20,(red),"minave");
 console.log("canvas height is"  + this. height);
 console.log("canvas width is"  + this. width);
 console.log("canvas anho is"  + micarro.ancho);
@@ -52,3 +52,4 @@ function display(){
   stroke(50);
   fill(155,4,10);
   rect(x, y, 70, 45);
+}
