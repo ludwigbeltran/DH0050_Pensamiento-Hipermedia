@@ -5,7 +5,6 @@
  
  <script src= "p5.min.js"></script>
   <script src= "sketch.js"></script>
-  <script src= "texto.js"></script>
 </head>
 <body>
 <h1>
