@@ -1,55 +1,57 @@
-// Where is the car
-let x, y;
-
-class Carro {
-  constructor(alto,ancho,color,name){
-  this.alto=alto;
-  this.ancho=ancho;
-  this.color=color;
-this.name=name;
-  }
-}
-
-
+// Definir las variables para los cuadrados
+let square1, square2;
+let speed = 5; // velocidad de movimiento de los cuadrados
 
 function setup() {
-  
-  createCanvas(400, 200);
-  // Starts position
-  y = height - height/4;
-  x = 0;
-let micarro= new Carro (10,20,(red),"minave");
-console.log("canvas height is"  + this. height);
-console.log("canvas width is"  + this. width);
-console.log("canvas anho is"  + micarro.ancho);
-console.log("canvas height is"  + micarro.alto);
-console.log("Nombre de mi carro es:"  + micarro.name);
+  // Crear el canvas
+  createCanvas(600, 400);
+
+  // Inicializar los cuadrados
+  square1 = {
+    x: 50,
+    y: height / 2,
+    size: 50,
+    color: "red"
+  };
+
+  square2 = {
+    x: width - 50,
+    y: height / 2,
+    size: 50,
+    color: "blue"
+  };
 }
 
 function draw() {
-  background(55);  
-  display();
-  move();
-}
+  // Limpiar el canvas
+  background(255);
 
+  // Dibujar los cuadrados
+  fill(square1.color);
+  rect(square1.x, square1.y, square1.size, square1.size);
+  fill(square2.color);
+  rect(square2.x, square2.y, square2.size, square2.size);
 
-function move(){
-  // Jiggling randomly
-  y = y + random(-1, 1);
-  
-  if (x > width) {
-    // Reset 
-    x = 0;
-    y = height - height/4;
-  } else {
-    // Moving up at a constant speed velocidad
-    x = x + 3;
+  // Mover los cuadrados a la derecha
+  square1.x += speed;
+  square2.x -= speed;
+
+  // Comprobar si los cuadrados chocan con las paredes laterales
+  if (square1.x + square1.size > width) {
+    square1.x = width - square1.size;
+    speed = -speed;
+  } else if (square1.x < 0) {
+    square1.x = 0;
+    speed = -speed;
+  }
+
+  if (square2.x < 0) {
+    square2.x = 0;
+    speed = -speed;
+  } else if (square2.x + square2.size > width) {
+    square2.x = width - square2.size;
+    speed = -speed;
   }
 }
-//abajo es para rect tamañol carro fill color
-function display(){
-  // Draw a car
-  stroke(50);
-  fill(155,4,10);
-  rect(x, y, 70, 45);
-}
+
+
